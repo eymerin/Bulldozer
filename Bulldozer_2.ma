@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
-//Name: Bulldozer_1.ma
-//Last modified: Thu, Sep 13, 2018 12:01:29 PM
+//Name: Bulldozer_2.ma
+//Last modified: Thu, Sep 13, 2018 12:04:34 PM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -14,19 +14,19 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "3711F2DF-4847-AECE-44ED-44969E9205C8";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 0.13401313040778162 6.1806840947151365 -8.0167024141322365 ;
-	setAttr ".r" -type "double3" 139.80829118629751 -1.9402811179182662 -179.9999999999996 ;
-	setAttr ".rp" -type "double3" 3.3306690738754696e-16 1.6653345369377348e-16 0 ;
-	setAttr ".rpt" -type "double3" 6.4762243749643847e-15 2.2381530326644457e-15 5.5125038515994853e-15 ;
+	setAttr ".t" -type "double3" 0.67596165740286462 3.7572310781157809 -5.4848376222707396 ;
+	setAttr ".r" -type "double3" 141.00829118627084 2.0597188820785783 -179.99999999999957 ;
+	setAttr ".rp" -type "double3" 7.4940054162198066e-16 -4.8572257327350599e-17 -8.8817841970012523e-16 ;
+	setAttr ".rpt" -type "double3" 5.3705478976474977e-15 2.1852973346678339e-15 6.9534239023683334e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "896A15BF-4850-937A-5692-E887AB222BEB";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 9.0307906672060234;
+	setAttr ".coi" 5.7016356222112261;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 0.3675821764496856 0.35268904659014311 -1.1221321378457139 ;
+	setAttr ".tp" -type "double3" 0.51668772219148329 0.16971676009767708 -1.0561785023967969 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "15E901C3-448D-29EE-8A98-EF97568FB949";
@@ -5550,6 +5550,20 @@ createNode groupParts -n "groupParts5";
 	rename -uid "F1DA11F9-4BF1-3C20-E516-82A4358AD2E3";
 	setAttr ".ihi" 0;
 	setAttr ".ic" -type "componentList" 1 "f[0:761]";
+createNode polyBevel3 -n "polyBevel7";
+	rename -uid "B6050D39-496C-BE3D-BD4A-958B8073CFAB";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 20 "e[39:41]" "e[43:48]" "e[50]" "e[52]" "e[54]" "e[56]" "e[58]" "e[60]" "e[214]" "e[217]" "e[877:879]" "e[881:886]" "e[888]" "e[890]" "e[892]" "e[894]" "e[896]" "e[898]" "e[1052]" "e[1055]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".ws" yes;
+	setAttr ".oaf" yes;
+	setAttr ".f" 0.3;
+	setAttr ".sg" 4;
+	setAttr ".at" 180;
+	setAttr ".sn" yes;
+	setAttr ".mv" yes;
+	setAttr ".mvt" 0.0001;
+	setAttr ".sa" 30;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -5606,7 +5620,7 @@ connectAttr "groupId9.id" "pCube7Shape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "pCube7Shape.iog.og[0].gco";
 connectAttr "groupId10.id" "pCube8Shape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "pCube8Shape.iog.og[0].gco";
-connectAttr "groupParts5.og" "pCube9Shape.i";
+connectAttr "polyBevel7.out" "pCube9Shape.i";
 connectAttr "groupId11.id" "pCube9Shape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "pCube9Shape.iog.og[0].gco";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -6100,6 +6114,8 @@ connectAttr "pCube7Shape.wm" "polyUnite4.im[0]";
 connectAttr "pCube8Shape.wm" "polyUnite4.im[1]";
 connectAttr "polyUnite4.out" "groupParts5.ig";
 connectAttr "groupId11.id" "groupParts5.gi";
+connectAttr "groupParts5.og" "polyBevel7.ip";
+connectAttr "pCube9Shape.wm" "polyBevel7.mp";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pCubeShape2.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape2.ciog.cog[0]" ":initialShadingGroup.dsm" -na;
@@ -6124,4 +6140,4 @@ connectAttr "groupId8.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId9.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId10.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId11.msg" ":initialShadingGroup.gn" -na;
-// End of Bulldozer_1.ma
+// End of Bulldozer_2.ma
