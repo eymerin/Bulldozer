@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
-//Name: Bulldozer_2.ma
-//Last modified: Tue, Sep 18, 2018 12:06:34 PM
+//Name: Bulldozer_with_wheels.ma
+//Last modified: Tue, Sep 18, 2018 12:07:10 PM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -17585,4 +17585,4 @@ connectAttr "groupId15.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId16.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId17.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId18.msg" ":initialShadingGroup.gn" -na;
-// End of Bulldozer_2.ma
+// End of Bulldozer_with_wheels.ma
